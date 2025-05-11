@@ -1,28 +1,11 @@
+// src/App.js
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Landingpage from './components/Landingpage';
-import { useDarkMode } from './context/darkmodecontext';
 import Chat from './components/Chat';
+import DarkModeToggle from './components/DarkModeToggle';
+import { useDarkMode } from './components/DarkModeContext';
 
-
-// Dark Mode Toggle Button Component
-export const DarkModeToggle = () => {
-  const { darkMode, setDarkMode } = useDarkMode();
-
-  return (
-    <div className="flex justify-end p-4">
-      <button
-        onClick={() => setDarkMode((prev) => !prev)}
-        className="bg-gray-200 dark:bg-gray-700 p-2 rounded-full transition duration-300"
-        title="Toggle Dark Mode"
-      >
-        <span className={`text-xl ${darkMode ? 'text-yellow-400' : 'text-gray-800'}`}>
-          {darkMode ? '☀️' : '🌙'}
-        </span>
-      </button>
-    </div>
-  );
-};
 
 const App = () => {
   const { darkMode } = useDarkMode();
@@ -45,7 +28,7 @@ const App = () => {
         </Routes>
 
         {/* Chat Button */}
-        <Chat/>  {/* Add ChatButton here */}
+        <Chat />  {/* Add ChatButton here */}
 
         <footer className="bg-[#F95738] dark:bg-gray-800 py-4 mt-10">
           <div className="container mx-auto text-center">

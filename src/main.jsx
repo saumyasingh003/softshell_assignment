@@ -3,12 +3,10 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 
 import './index.css';
-import { DarkModeProvider } from './context/darkmodecontext';
+import { DarkModeProvider } from './components/DarkModeContext.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-
-    <DarkModeProvider>
-      <App />
-    </DarkModeProvider>
-
+  <DarkModeProvider>
+    <App />
+  </DarkModeProvider>
 );

@@ -3,7 +3,7 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const DarkModeContext = createContext();
 
-export const DarkModeProvider = ({ children }) => {
+const DarkModeProvider = ({ children }) => {
   const [darkMode, setDarkMode] = useState(false);
 
   // Load initial value from localStorage on mount
