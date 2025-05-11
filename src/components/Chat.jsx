@@ -97,7 +97,7 @@ const Chat = () => {
       <div className="fixed bottom-4 left-4 z-50">
         <button
           onClick={toggleChatWindow}
-          className="bg-[#F95738] text-white p-4 rounded-full shadow-lg hover:shadow-2xl transition duration-300"
+          className="bg-[#F95738] text-white p-4 rounded-full shadow-lg hover:shadow-2xl transition duration-300 cursor-pointer"
           title="Chat with us"
         >
           <FaCommentAlt className="text-2xl" />

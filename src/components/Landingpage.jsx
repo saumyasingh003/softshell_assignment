@@ -8,6 +8,7 @@ import {
 } from "react-icons/fa";
 import ContactForm from "./Contactform";
 import { motion } from "framer-motion";
+import { useDarkMode } from "../context/DarkModeContext";
 
 const Hero = () => {
   const fadeInUp = {
@@ -18,9 +19,10 @@ const Hero = () => {
       transition: { duration: 0.6, ease: "easeOut", delay: idx * 0.2 },
     }),
   };
+  const {darkMode, setDarkMode} = useDarkMode()
 
   return (
-    <div className="min-h-screen bg-white text-black dark:bg-gray-900 dark:text-white transition-colors duration-300">
+    <div className="min-h-screen  transition-colors duration-300">
       {/* Hero Section */}
       <section className="py-10">
         <motion.h1
@@ -87,7 +89,7 @@ const Hero = () => {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-16 dark:bg-gray-900 bg-white transition-colors">
+      <section className="py-16  transition-colors">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-[#083D77] dark:text-white mb-12">
             Why Choose Us

@@ -3,24 +3,16 @@ import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Landingpage from './components/Landingpage';
 import Chat from './components/Chat';
-import DarkModeToggle from './context/DarkModeToggle.jsx';
-import { useDarkMode } from './components/DarkModeContext.jsx';
+import DarkModeToggle from './components/DarkModeToggle.jsx';
+import { useDarkMode } from './context/DarkModeContext.jsx';
 
 
 const App = () => {
   const { darkMode } = useDarkMode();
 
-  // Apply the dark class to <html> tag when darkMode is true
-  useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }, [darkMode]);
 
   return (
-    <div className="min-h-screen bg-white text-black dark:bg-gray-900 dark:text-white transition-colors duration-300">
+    <div className={`${darkMode?"min-h-screen bg-white  text-black transition-colors duration-300":"text-white bg-gray-900"}`}>
       <Router>
         <DarkModeToggle />
         <Routes>
