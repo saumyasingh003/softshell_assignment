@@ -3,8 +3,8 @@ import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Landingpage from './components/Landingpage';
 import Chat from './components/Chat';
-import DarkModeToggle from './components/DarkModeToggle';
-import { useDarkMode } from './components/DarkModeContext';
+import DarkModeToggle from './context/DarkModeToggle.jsx';
+import { useDarkMode } from './components/DarkModeContext.jsx';
 
 
 const App = () => {

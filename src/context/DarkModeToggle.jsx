@@ -1,6 +1,8 @@
 // src/components/DarkModeToggle.js
 import React from 'react';
-import { useDarkMode } from '../components/DarkModeContext.js';
+import { useDarkMode } from '../components/DarkModeContext';
+
+
 
 // Dark Mode Toggle Button Component
 const DarkModeToggle = () => {
