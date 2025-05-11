@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FaCommentAlt } from 'react-icons/fa';
 import axios from 'axios';
+import { useDarkMode } from '../context/DarkModeContext';
 
 const Chat = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
@@ -8,6 +9,8 @@ const Chat = () => {
   const [userInput, setUserInput] = useState('');
   const [loading, setLoading] = useState(false);
   const [inactivityTimer, setInactivityTimer] = useState(null);
+
+  const { darkMode } = useDarkMode();
 
   const toggleChatWindow = () => {
     setIsChatOpen((prev) => !prev);
@@ -97,7 +100,9 @@ const Chat = () => {
       <div className="fixed bottom-4 left-4 z-50">
         <button
           onClick={toggleChatWindow}
-          className="bg-[#F95738] text-white p-4 rounded-full shadow-lg hover:shadow-2xl transition duration-300 cursor-pointer"
+          className={`p-4 rounded-full shadow-lg hover:shadow-2xl transition duration-300 cursor-pointer ${
+            'bg-[#F95738] text-white'
+          }`}
           title="Chat with us"
         >
           <FaCommentAlt className="text-2xl" />
@@ -106,26 +111,36 @@ const Chat = () => {
 
       {/* Chat Window */}
       {isChatOpen && (
-        <div className="fixed bottom-16 left-4 w-80 bg-white shadow-lg rounded-xl p-4 z-50">
+        <div
+          className={`fixed bottom-16 left-4 w-80 shadow-lg rounded-xl p-4 z-50 ${
+            darkMode ? 'bg-white text-black' : 'bg-white text-black'
+          }`}
+        >
           <div className="max-h-60 overflow-y-auto mb-4">
             {messages.map((msg, index) => (
               <div key={index} className={`mb-2 ${msg.sender === 'user' ? 'text-right' : ''}`}>
                 <div
-                  className={`p-2 rounded-xl ${
-                    msg.sender === 'user' ? 'bg-blue-500 text-white' : 'bg-gray-200'
+                  className={`p-2 rounded-xl inline-block ${
+                    msg.sender === 'user'
+                      ? 'bg-blue-500 text-white'
+                      : darkMode
+                      ? ' bg-gray-200 text-black'
+                      : 'bg-gray-200 text-black'
                   }`}
                 >
                   {msg.text}
                 </div>
               </div>
             ))}
-            {loading && <div className="text-center text-gray-500">Bot is typing...</div>}
+            {loading && <div className="text-center text-gray-400">Bot is typing...</div>}
           </div>
 
           <div className="flex">
             <input
               type="text"
-              className="flex-grow p-2 border rounded-md"
+              className={`flex-grow p-2 border rounded-md outline-none ${
+                darkMode ? ' text-black border-gray-600' : 'border-gray-300'
+              }`}
               value={userInput}
               onChange={(e) => setUserInput(e.target.value)}
               placeholder="Type a message..."
@@ -133,7 +148,9 @@ const Chat = () => {
             />
             <button
               onClick={handleSendMessage}
-              className="ml-2 p-2 bg-blue-500 text-white rounded-full"
+              className={`ml-2 px-4 py-2 rounded-full ${
+                darkMode ? 'bg-blue-400 text-white' : 'bg-blue-500 text-white'
+              }`}
             >
               Send
             </button>
