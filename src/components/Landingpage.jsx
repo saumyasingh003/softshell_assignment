@@ -32,7 +32,7 @@ const Hero = () => {
         >
           <div className="max-w-7xl mx-auto px-4 text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-[#F95738]">
-              Resell Your Unused Software Licenses with Ease
+              Resell Your Unused Software Licenses with SoftSell
             </h1>
             <p className="mt-6 text-lg md:text-xl max-w-2xl mx-auto text-[#083D77] dark:text-blue-100">
               Turn your idle software into instant value. Get fast quotes,
